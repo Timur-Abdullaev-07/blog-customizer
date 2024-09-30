@@ -16,6 +16,7 @@ export const useEnterSubmit = ({
 		const handleEnterKeyDown = (event: KeyboardEvent) => {
 			if (event.key === 'Enter') {
 				onChange((isOpen: boolean) => !isOpen);
+				event.stopPropagation();
 			}
 		};
 		placeholderEl.addEventListener('keydown', handleEnterKeyDown);

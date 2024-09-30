@@ -86,7 +86,10 @@ export const Select = (props: SelectProps) => {
 					</Text>
 				</div>
 				{isOpen && (
-					<ul className={styles.select} data-testid='selectDropdown'>
+					<ul
+						onClick={(e) => e.stopPropagation()}
+						className={styles.select}
+						data-testid='selectDropdown'>
 						{options
 							.filter((option) => selected?.value !== option.value)
 							.map((option) => (

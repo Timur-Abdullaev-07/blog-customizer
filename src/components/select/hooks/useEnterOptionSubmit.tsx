@@ -18,6 +18,7 @@ export const useEnterOptionSubmit = ({
 		const handleEnterKeyDown = (event: KeyboardEvent) => {
 			if (document.activeElement === option && event.key === 'Enter') {
 				onClick(value);
+				event.stopPropagation();
 			}
 		};
 

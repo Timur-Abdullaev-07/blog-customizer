@@ -3,6 +3,7 @@ import { Text } from 'components/text';
 import { Option } from './Option';
 
 import styles from './RadioGroup.module.scss';
+import { useRef } from 'react';
 
 type RadioGroupProps = {
 	name: string;
@@ -14,11 +15,12 @@ type RadioGroupProps = {
 
 export const RadioGroup = (props: RadioGroupProps) => {
 	const { name, options, selected, onChange, title } = props;
+	const placeholderRef = useRef<HTMLDivElement>(null);
 
 	const handleChange = (option: OptionType) => onChange?.(option);
 
 	return (
-		<div className={styles.container}>
+		<div ref={placeholderRef} className={styles.container}>
 			{title && (
 				<>
 					<Text weight={800} size={12} uppercase>
